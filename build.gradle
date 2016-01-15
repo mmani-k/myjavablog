@@ -86,7 +86,7 @@ publishing {
     //}
 }
 
-artifactory {
+/*artifactory {
   contextUrl = 'http://localhost:8080/artifactory'   //The base Artifactory URL if not overridden by the publisher/resolver
   publish {
     contextUrl = 'http://localhost:8080/artifactory'   //The base Artifactory URL for the publisher
@@ -110,4 +110,4 @@ artifactory {
       username = 'admin'          //The publisher user name
     }
   }
-}
+}*/
