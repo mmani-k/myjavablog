@@ -3,10 +3,12 @@ buildscript {
         jcenter()
     }
     dependencies {
+		classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.0.0"
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.1.RELEASE")
     }
 }
 
+apply plugin: "com.jfrog.artifactory"
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
@@ -15,7 +17,9 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot'
 //group = 'my.code'
 //version = '1.0'
-
+plugins {
+  id "com.jfrog.artifactory" version "4.0.0"
+}
 jar{
 	baseName = 'myblog'
 	appendix = 'myproject'
@@ -78,4 +82,34 @@ publishing {
     //        url "http://localhost:8081/artifactory/libs-release-local"
      //   }
     //}
+}
+
+artifactory {
+  contextUrl = 'http://localhost:8080/artifactory'   //The base Artifactory URL if not overridden by the publisher/resolver
+  publish {
+    contextUrl = 'http://localhost:8080/artifactory'   //The base Artifactory URL for the publisher
+    repository {
+      repoKey = 'integration-libs'   //The Artifactory repository key to publish to
+      username = 'admin'          //The publisher user name
+      //password = 'deployerPaS*'       //The publisher password
+    }
+    defaults {
+        //List of Gradle Publications (names or objects) from which to collect the list of artifacts to be deployed to Artifactory.
+        publications ('mavenJava')
+        ////List of Gradle Configurations (names or objects) from which to collect the list of artifacts to be deployed to Artifactory. 
+        publishConfigs('archives', 'published')                   
+        properties = ['qa.level': 'basic', 'q.os': 'win32, deb, osx']  //Optional map of properties to attach to all published artifacts
+        publishBuildInfo = true   //Publish build-info to Artifactory (true by default)
+        publishArtifacts = true   //Publish artifacts to Artifactory (true by default)
+        publishPom = true   //Publish generated POM files to Artifactory (true by default).
+    }
+  }
+  resolve {
+    contextUrl = 'http://localhost:8080/artifactory'   //The base Artifactory URL for the publisher
+    repository {
+      repoKey = 'integration-libs'   //The Artifactory repository key to publish to
+      username = 'admin'          //The publisher user name
+      //password = 'deployerPaS*'       //The publisher password
+    }
+  }
 }
