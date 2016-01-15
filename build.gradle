@@ -8,7 +8,7 @@ buildscript {
     }
 
 
-}
+}rootProject.name = theName
 plugins {
   id "com.jfrog.artifactory" version "4.0.0"
 }
@@ -19,8 +19,8 @@ apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
-group = 'my.code'
-name = 'test'
+
+group = 'my.code.project'
 version = '1.0'
 jar{
 	baseName = 'myblog'
