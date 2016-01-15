@@ -19,8 +19,8 @@ apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
-//group = 'my.code'
-//version = '1.0'
+group = 'my.code'
+version = '1.0'
 jar{
 	baseName = 'myblog'
 	appendix = 'myproject'
@@ -92,12 +92,9 @@ artifactory {
     repository {
       repoKey = 'integration-libs'   //The Artifactory repository key to publish to
       username = 'admin'          //The publisher user name
-      //password = 'deployerPaS*'       //The publisher password
     }
     defaults {
-        //List of Gradle Publications (names or objects) from which to collect the list of artifacts to be deployed to Artifactory.
         publications ('mavenJava')
-        ////List of Gradle Configurations (names or objects) from which to collect the list of artifacts to be deployed to Artifactory. 
         publishConfigs('archives', 'published')                   
         properties = ['qa.level': 'basic', 'q.os': 'win32, deb, osx']  //Optional map of properties to attach to all published artifacts
         publishBuildInfo = true   //Publish build-info to Artifactory (true by default)
@@ -110,7 +107,6 @@ artifactory {
     repository {
       repoKey = 'integration-libs'   //The Artifactory repository key to publish to
       username = 'admin'          //The publisher user name
-      //password = 'deployerPaS*'       //The publisher password
     }
   }
 }
