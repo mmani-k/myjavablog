@@ -54,37 +54,9 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
 
-//publishing {
- //   publications {
- //       maven(MavenPublication) {
- //           groupId 'org.gradle.sample'
- //           artifactId 'project1-sample'
- //           version '1.1'
-//
- //           from components.java
-//        }
- //   }
-//}
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-		    groupId 'gradlesample'
-            artifactId 'project1-sample'
-            version '1.1'
-            from components.java
-        }
-    }
-    //repositories {
-    //    maven {
-    //        credentials {
-    //          username 'admin'
-    //          password 'password'
-    //        }
-    //        url "http://localhost:8081/artifactory/libs-release-local"
-     //   }
-    //}
-}
+
+
 
 artifactory {
   contextUrl = 'http://localhost:8080/artifactory'   //The base Artifactory URL if not overridden by the publisher/resolver
