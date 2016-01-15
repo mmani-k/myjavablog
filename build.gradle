@@ -20,7 +20,7 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
-group = 'my'
+/*group = 'my'
 version = '1.0'
 jar{
 	baseName = 'myblog'
@@ -30,7 +30,7 @@ jar{
 
 artifacts {
     archives jar
-}
+}*/
 repositories {
     jcenter()
 }
