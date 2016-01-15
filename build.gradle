@@ -13,13 +13,18 @@ apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
-group = 'my.code'
-version = '1.0'
+//group = 'my.code'
+//version = '1.0'
 
+jar{
+	baseName = 'myblog'
+	appendix = 'myproject'
+	version = '1.0-SNAPSHOT'
+}
 
-//artifacts {
-//    archives jar
-//}
+artifacts {
+    archives jar
+}
 repositories {
     jcenter()
 }
@@ -43,11 +48,24 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
 
-
+//publishing {
+ //   publications {
+ //       maven(MavenPublication) {
+ //           groupId 'org.gradle.sample'
+ //           artifactId 'project1-sample'
+ //           version '1.1'
+//
+ //           from components.java
+//        }
+ //   }
+//}
 
 publishing {
     publications {
         mavenJava(MavenPublication) {
+		    groupId 'org.gradle.sample'
+            artifactId 'project1-sample'
+            version '1.1'
             from components.java
         }
     }
