@@ -69,13 +69,13 @@ publishing {
             from components.java
         }
     }
-    //repositories {
-    //    maven {
+    repositories {
+        maven {
     //        credentials {
     //          username 'admin'
     //          password 'password'
     //        }
-    //        url "http://localhost:8081/artifactory/libs-release-local"
-    //    }
-    //}
+            url "http://localhost:8081/artifactory/libs-release-local"
+        }
+    }
 }
