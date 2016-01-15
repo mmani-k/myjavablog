@@ -54,7 +54,16 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
 
-
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+		    groupId 'gradlesample'
+            artifactId 'project1-sample'
+            version '1.1'
+            from components.java
+        }
+    }
+}
 
 
 
@@ -67,8 +76,8 @@ artifactory {
       username = 'admin'          //The publisher user name
     }
     defaults {
-       // publications ('mavenJava')
-       // publishConfigs('archives', 'published')                   
+        publications ('mavenJava')
+        publishConfigs('archives', 'published')                   
         properties = ['qa.level': 'basic', 'q.os': 'win32, deb, osx']  //Optional map of properties to attach to all published artifacts
         publishBuildInfo = true   //Publish build-info to Artifactory (true by default)
         publishArtifacts = true   //Publish artifacts to Artifactory (true by default)
