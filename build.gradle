@@ -8,7 +8,7 @@ buildscript {
     }
 
 
-}rootProject.name = theName
+}
 plugins {
   id "com.jfrog.artifactory" version "4.0.0"
 }
