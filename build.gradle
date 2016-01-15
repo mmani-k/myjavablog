@@ -9,14 +9,13 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+group = 'my.code'
+version = '1.0'
 
-jar {
-    baseName = 'gs-spring-boot'
-    version =  '0.1.0'
-}
 
 //artifacts {
 //    archives jar
@@ -44,12 +43,21 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
 
-uploadArchives {
+
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
     repositories {
-        mavenDeployer {
-            repository(url: "http://localhost:8081/artifactory/libs-snapshot-local"){
-                authentication(userName: "admin", password: "password")
-			}
+        maven {
+            credentials {
+              username 'admin'
+              password 'password'
+            }
+            url "http://localhost:8081/artifactory/libs-release-local"
         }
     }
 }
