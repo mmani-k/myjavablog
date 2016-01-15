@@ -79,9 +79,9 @@ artifactory {
         publications ('mavenJava')
         //publishConfigs('archives')                   
         properties = ['qa.level': 'basic', 'q.os': 'win32, deb, osx']  //Optional map of properties to attach to all published artifacts
-        publishBuildInfo = true   //Publish build-info to Artifactory (true by default)
+//publishBuildInfo = true   //Publish build-info to Artifactory (true by default)
         publishArtifacts = true   //Publish artifacts to Artifactory (true by default)
-        publishPom = true   //Publish generated POM files to Artifactory (true by default).
+//        publishPom = true   //Publish generated POM files to Artifactory (true by default).
     }
   }
   resolve {
