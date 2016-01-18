@@ -68,27 +68,20 @@ publishing {
 
 
 artifactory {
-  contextUrl = 'http://localhost:8080/artifactory'   //The base Artifactory URL if not overridden by the publisher/resolver
+  contextUrl = 'http://localhost:8081/artifactory' 
   publish {
-    contextUrl = 'http://localhost:8080/artifactory'   //The base Artifactory URL for the publisher
-    repository {
-      repoKey = 'libs-release-local'   //The Artifactory repository key to publish to
-      username = 'admin'          //The publisher user name
+
+	repository {
+      repoKey = 'libs-release-local'
+      username = 'admin' 
+	  password = 'password'
+	  maven = true
     }
     defaults {
         publications ('mavenJava')
-        //publishConfigs('archives')                   
-        //properties = ['qa.level': 'basic', 'q.os': 'win32, deb, osx']  //Optional map of properties to attach to all published artifacts
 		publishBuildInfo = false   //Publish build-info to Artifactory (true by default)
         publishArtifacts = true   //Publish artifacts to Artifactory (true by default)
         publishPom = true   //Publish generated POM files to Artifactory (true by default).
     }
   }
-  /*resolve {
-    contextUrl = 'http://localhost:8080/artifactory'   //The base Artifactory URL for the publisher
-    repository {
-      repoKey = 'libs-release-local'   //The Artifactory repository key to publish to
-      username = 'admin'          //The publisher user name
-    }
-  }*/
 }
