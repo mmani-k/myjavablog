@@ -15,7 +15,7 @@ plugins {
 apply plugin: "com.jfrog.artifactory"
 apply plugin: 'java'
 apply plugin: 'maven'
-apply plugin: 'maven-publish'
+//apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
@@ -81,7 +81,7 @@ artifactory {
         //properties = ['qa.level': 'basic', 'q.os': 'win32, deb, osx']  //Optional map of properties to attach to all published artifacts
 		publishBuildInfo = false   //Publish build-info to Artifactory (true by default)
         publishArtifacts = true   //Publish artifacts to Artifactory (true by default)
-        publishPom = false   //Publish generated POM files to Artifactory (true by default).
+        publishPom = true   //Publish generated POM files to Artifactory (true by default).
     }
   }
   /*resolve {
