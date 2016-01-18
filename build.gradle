@@ -15,7 +15,7 @@ plugins {
 apply plugin: "com.jfrog.artifactory"
 apply plugin: 'java'
 apply plugin: 'maven'
-//apply plugin: 'maven-publish'
+apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
