@@ -12,7 +12,6 @@ buildscript {
 plugins {
   id "com.jfrog.artifactory" version "4.0.0"
 }
-apply plugin: "com.jfrog.artifactory"
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
@@ -20,7 +19,7 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
-groupId = 'com.mycode.java'
+group = 'com.mycode.java'
 version = '1.0'
 artifactId = 'myjavablog'
 
