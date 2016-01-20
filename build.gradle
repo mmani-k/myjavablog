@@ -54,7 +54,7 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
 
-publishing {
+/*publishing {
     publications {
         mavenJava(MavenPublication) {
 		    groupId 'gradlesample'
@@ -84,4 +84,4 @@ artifactory {
         publishPom = true   //Publish generated POM files to Artifactory (true by default).
     }
   }
-}
+}*/
