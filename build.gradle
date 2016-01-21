@@ -19,22 +19,20 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
-group = 'com.mycode.java'
-version = '1.0'
-artifactId = 'myjavablog'
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'com.mycode.java'
+            artifactId 'myjavablog'
+            version '1.0'
 
-/*group = 'my'
-version = '1.0'
-jar{
-	baseName = 'myblog'
-	appendix = 'myproject'
-	version = '1.0-SNAPSHOT'
+            from components.java
+        }
+    }
 }
 
-artifacts {
-    archives jar
-}*/
+
 repositories {
     jcenter()
 }
@@ -58,34 +56,3 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
 
-/*publishing {
-    publications {
-        mavenJava(MavenPublication) {
-		    groupId 'gradlesample'
-            artifactId 'project1-sample'
-            version '1.1'
-            from components.java
-        }
-    }
-}
-
-
-
-artifactory {
-  contextUrl = 'http://localhost:8081/artifactory' 
-  publish {
-
-	repository {
-      repoKey = 'libs-release-local'
-      username = 'admin' 
-	  password = 'password'
-	  maven = true
-    }
-    defaults {
-        publications ('mavenJava')
-		publishBuildInfo = false   //Publish build-info to Artifactory (true by default)
-        publishArtifacts = true   //Publish artifacts to Artifactory (true by default)
-        publishPom = true   //Publish generated POM files to Artifactory (true by default).
-    }
-  }
-}*/
