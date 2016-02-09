@@ -29,7 +29,7 @@ repositories {
 }
 publishing {
     publications {
-        maven(MavenPublication) {
+        mavenJava(MavenPublication) {
             groupId 'com.mycode.java'
             artifactId 'myjavablog'
             version '1.0'
@@ -72,7 +72,7 @@ artifactory {
     }
     defaults {
         //List of Gradle Publications (names or objects) from which to collect the list of artifacts to be deployed to Artifactory.
-        publications ('ivyJava','mavenJava','foo')
+        publications ('mavenJava')
         ////List of Gradle Configurations (names or objects) from which to collect the list of artifacts to be deployed to Artifactory. 
         publishConfigs('archives', 'published')                   
         publishBuildInfo = true   //Publish build-info to Artifactory (true by default)
