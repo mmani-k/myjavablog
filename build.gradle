@@ -1,5 +1,4 @@
 buildscript {
-<<<<<<< HEAD
   repositories {
     jcenter()
   }
@@ -8,24 +7,8 @@ buildscript {
 
     classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.0.0"
   }
-=======
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.1.RELEASE")
-		classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.0.0"
- 
-    }
->>>>>>> 62c50b56ff903d2864e2a248e32bf44b9f0c0d94
 }
 apply plugin: "com.jfrog.artifactory"
-
-
-plugins {
-  id "com.jfrog.artifactory" version "4.0.0"
-}
-
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
@@ -77,11 +60,6 @@ dependencies {
 
 
 
-task wrapper(type: Wrapper) {
-<<<<<<< HEAD
-    gradleVersion = '2.3'
-}
-
 
 artifactory {
   contextUrl = 'http://localhost:8081/artifactory'   //The base Artifactory URL if not overridden by the publisher/resolver
@@ -103,7 +81,8 @@ artifactory {
     }
   }
  }
-=======
-    gradleVersion = '2.9'
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
 }
->>>>>>> 62c50b56ff903d2864e2a248e32bf44b9f0c0d94
+
+
